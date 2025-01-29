@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>SVG-Test</title>
+</head>
+<body>
+  <h1>Mein SVG-Test</h1>
+
+  <!-- Option A: Wir binden das SVG direkt im HTML ein (inline) -->
+  <svg id="myIcon" width="100" height="100" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="blue"></circle>
+  </svg>
+
+  <button onclick="changeColor()">Farbe ändern</button>
+
+  <script>
+    function changeColor() {
+      // SVG-Element referenzieren
+      const myIcon = document.getElementById('myIcon');
+      // Für dieses Beispiel wollen wir die <circle> einfärben
+      // Holen wir das erste <circle>-Element:
+      const circle = myIcon.querySelector('circle');
+
+      // Einfacher Farbwechsel: wir toggeln zwischen blau und rot
+      if (circle.getAttribute('fill') === 'blue') {
+        circle.setAttribute('fill', 'red');
+      } else {
+        circle.setAttribute('fill', 'blue');
+      }
+    }
+  </script>
+
+  <hr />
+
+  <!-- Option B: SVG als separate Datei (icon.svg) laden -->
+  <!-- <img src="icon.svg" alt="Mein Icon" /> -->
+
+</body>
+</html>
